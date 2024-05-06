@@ -47,6 +47,7 @@
           <button class="navButton" on:click={() => navigateToUrl('https://www.twitter.com/kyurihere')}>Twitter</button>
           <button class="navButton" on:click={() => navigateToUrl('https://www.github.com/ckyuri')}>Github</button>
         </ul>
+        
       </div>
     </div>
   </div>
@@ -111,6 +112,13 @@
         outline: solid 1px var(--color-primary-300);
         box-shadow: 0 0 0.5rem 0.5rem var(--color-surface-mixed-200);
     }
+    @media (max-width: 600px) {
+    .card {
+        /* Styles for mobile devices */
+        width: 80%; /* Adjust the width as needed */
+        margin: 0 auto; /* Center the card horizontally */
+    }
+}
     .card-header {
         display: flex;
         flex-direction: column;
