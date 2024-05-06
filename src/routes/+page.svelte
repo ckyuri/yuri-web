@@ -34,7 +34,6 @@
           FPS Aimer + Software Developer
         </div>
       </div>
-
       <div class="card-content">
         <ul>
             <button class="navButton {isCopied ? 'copied' : ''}" on:click={() => copyToClipboard('ckyurii')}>
@@ -47,7 +46,6 @@
           <button class="navButton" on:click={() => navigateToUrl('https://www.twitter.com/kyurihere')}>Twitter</button>
           <button class="navButton" on:click={() => navigateToUrl('https://www.github.com/ckyuri')}>Github</button>
         </ul>
-        
       </div>
     </div>
   </div>
@@ -149,7 +147,7 @@
     }
     .seperator {
         width: 80%;
-        outline: solid 1px var(--color-primary-300);
+        outline: dotted 1px var(--color-primary-300);
     }
     .caption {
         width: 80%;
@@ -173,20 +171,18 @@
         text-align: center;
         gap: 1rem;
     }
-    .card-content .navButton {
-        outline: 1px solid var(--color-primary-200);
-        width: 8rem;
-        height: 2.5rem;
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
-    }
 
     .navButton {
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
-    color: var(--color-primary-600);
-  }
+        border: none;
+        cursor: pointer;
+        background-color: transparent;
+        color: var(--color-primary-600);
+        width: 10rem;
+        height: 3.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        outline: 1px solid var(--color-primary-200);
+    }
 
     .navButton.copied {
         color: var(--color-primary-300);
