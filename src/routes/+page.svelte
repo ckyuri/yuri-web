@@ -1,32 +1,58 @@
 <script>
+    import { onMount } from 'svelte';
     import pfp from '../lib/img/pfp.jpg';
+
+
+    let isCopied = false;
+
+    function navigateToUrl(url) {
+        window.location.href = url;
+    }
+
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text);
+        isCopied = true;
+        setTimeout(() => {
+            isCopied = false;
+        }, 2000); // 2 seconds
+    }
+
+
 </script>
 
 
 <body>
   <div class="container">
     <div class="card">
-        <div class="card-header">
-            <div class="card-icon">
-                <img src="{pfp}" alt="">
-            </div>
-            <h2 style="color:var(--maroon); margin-top: 2rem;">kyuri</h2>
-            <div class="seperator"></div>
-            <div class="caption">
-                FPS Aimer + Software Developer
-            </div>
+      <div class="card-header">
+        <div class="card-icon">
+          <img src="{pfp}" alt="">
         </div>
+        <h2 style="color:var(--maroon); margin-top: 2rem;">kyuri</h2>
+        <div class="seperator"></div>
+        <div class="caption">
+          FPS Aimer + Software Developer
+        </div>
+      </div>
 
-        <div class="card-content">
-            <ul>
-                <li>Discord</li>
-                <li>Twitter</li>
-                <li>GitHub</li>
-            </ul>
+      <div class="card-content">
+        <ul>
+            <button class="navButton {isCopied ? 'copied' : ''}" on:click={() => copyToClipboard('ckyurii')}>
+                {#if isCopied}
+                    Copied
+                {:else}
+                    Discord
+                {/if}
+            </button>
+          <button class="navButton" on:click={() => navigateToUrl('https://www.twitter.com/kyurihere')}>Twitter</button>
+          <button class="navButton" on:click={() => navigateToUrl('https://www.github.com/ckyuri')}>Github</button>
+        </ul>
+      </div>
     </div>
   </div>
-
 </body>
+
+
 
 <style>
     @layer base {
@@ -111,7 +137,7 @@
         width: 6rem;
         height: 6rem;
         border-radius: 50%;
-        outline: solid 1px var(--color-primary-300);
+        outline: solid 2px var(--color-primary-300);
     }
     .seperator {
         width: 80%;
@@ -125,7 +151,7 @@
     .card-content {
         display: flex;
         flex-direction: column;
-        height: 50%;
+        height: 65%;
         align-items: center;
         justify-content: space-evenly;
         border-radius: 0 0 1rem 1rem;
@@ -139,11 +165,23 @@
         text-align: center;
         gap: 1rem;
     }
-    .card-content ul li {
+    .card-content .navButton {
         outline: 1px solid var(--color-primary-200);
+        width: 8rem;
+        height: 2.5rem;
         padding: 0.5rem 1rem;
         border-radius: 0.5rem;
     }
-   
+
+    .navButton {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--color-primary-600);
+  }
+
+    .navButton.copied {
+        color: var(--color-primary-300);
+    }
    
 </style>
